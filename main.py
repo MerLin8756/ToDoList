@@ -39,3 +39,4 @@ while True:
         break
 
 print('Hellow world')
+print('Привет GitHub')
