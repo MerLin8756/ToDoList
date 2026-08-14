@@ -1,3 +1,4 @@
+"""Логика консольного проложения """
 from task_service import add_task,show_task,clear_from_json,task_complete, read_task_from_json
 from models import Task
 

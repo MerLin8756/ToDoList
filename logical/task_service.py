@@ -1,3 +1,4 @@
+"""Основные функции для работы с данными класса Task"""
 import json
 
 def add_task(record):
