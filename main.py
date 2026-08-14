@@ -40,4 +40,3 @@ while True:
 
 print('Hellow world')
 print('Привет GitHub')
-print('Новый коммит')
