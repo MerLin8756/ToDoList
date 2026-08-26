@@ -8,5 +8,6 @@ venv/
 
 # PyCharm
 .idea/
-docker-compose.yml
-do_list.json
+config/docker-compose.yml
+.json
+logical/__init__.py
