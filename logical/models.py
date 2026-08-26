@@ -1,6 +1,8 @@
 
 """Класс добавления тески в БД(пока json-файл)"""
-
+from sqlalchemy import  String
+from sqlalchemy import Mapped, mapped_column
+from .database import Base
 class Task:
    id  =0
 
@@ -13,12 +15,23 @@ class Task:
         self.status = status
 
 
+class User(Base):
+    __table__="users"
+    id:Mapped[int] =mapped_column(
+        primary_key=True
+    )
+    username:Mapped[str]= mapped_column(
+        String(64),
+        unique=True,
+        nullable=True
 
-
-
-def record_serializer(obj):
-    if isinstance(obj,Task):
-        return {'id':obj.id, 'task':obj.task, 'status':obj.status}
-
-    raise TypeError(f"Object of type {type(obj).__name__} is not JSON serializable")
-
+    )
+    email =Mapped[str]=mapped_column(
+        String(64),
+        unique= True,
+        nullable= False
+    )
+    password = Mapped[str] =mapped_column(
+        String(64),
+        nullable =False
+    )
