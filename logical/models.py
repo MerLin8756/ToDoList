@@ -1,8 +1,8 @@
 
 """Класс добавления тески в БД(пока json-файл)"""
 from sqlalchemy import  String
-from sqlalchemy import Mapped, mapped_column
-from .database import Base
+from sqlalchemy.orm import Mapped, mapped_column
+from logical.database import Base
 class Task:
    id  =0
 
@@ -16,7 +16,8 @@ class Task:
 
 
 class User(Base):
-    __table__="users"
+    __tablename__="users"
+    __table_args__ = {'extend_existing': True}
     id:Mapped[int] =mapped_column(
         primary_key=True
     )
@@ -26,12 +27,12 @@ class User(Base):
         nullable=True
 
     )
-    email =Mapped[str]=mapped_column(
+    email:Mapped[str]=mapped_column(
         String(64),
         unique= True,
         nullable= False
     )
-    password = Mapped[str] =mapped_column(
+    password: Mapped[str] =mapped_column(
         String(64),
         nullable =False
     )

@@ -8,6 +8,4 @@ def hash_password(psswd:str )->str:
     b =bytes(psswd,'utf-8')
     crypt.update(b)
     return crypt.hexdigest()
-print(hash_password(''))
-
 

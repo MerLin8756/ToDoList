@@ -11,3 +11,5 @@ venv/
 config/docker-compose.yml
 .json
 logical/__init__.py
+quaries.py
+logical/database.py

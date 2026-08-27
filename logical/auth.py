@@ -1,5 +1,5 @@
 """Файл по авторизации пользователя в нашем приложении (пока что консольном)"""
-from .hash_password import hash_password
+from logical.hash_password import hash_password
 
 from database import SessionLocal
 from models import User
@@ -11,7 +11,7 @@ def register(
         password:str
 ):
     pasword_hash =hash_password(password)
-    with SessionLocal  as session:
+    with SessionLocal()  as session:
         user =User(
             username =username,
             email= email,
@@ -30,11 +30,11 @@ def get_user_by_username(username:str):
         return None
 
 
-def authenticate_user(username:atr,
+def authenticate_user(username:str,
                       password:str
  ):
     password_hash  = hash_password(password)
-    with SessionLocal as session:
+    with SessionLocal() as session:
         statement =select(User).where(User.username==username)
         user =session.scalar(statement)
         if not user:
