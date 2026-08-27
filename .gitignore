@@ -9,7 +9,7 @@ venv/
 # PyCharm
 .idea/
 config/docker-compose.yml
-.json
+logical/.json
 logical/__init__.py
 quaries.py
 logical/database.py
